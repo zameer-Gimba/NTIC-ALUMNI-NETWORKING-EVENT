@@ -1,74 +1,66 @@
-<!DOCTYPE html><!DOCTYPE html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NTIC Alumni Business Networking Event 2026</title>
+<meta name="description" content="NTIC Alumni Business Networking Event 2026">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-.nav a{color:#fff;text-decoration:none;margin:0 10px}
-
-.btn{
-  background:var(--orange);
-  padding:10px 18px;
-  border-radius:6px;
-  color:#fff;
-  text-decoration:none;
+<style>
+:root{
+--navy:#071a3d;--navy2:#0b234f;--orange:#ff6b00;--light:#f8fafc;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#fff;color:#10213d;line-height:1.7}
+.container{width:min(1200px,92%);margin:auto}
+header{position:sticky;top:0;z-index:999;background:rgba(7,26,61,.95);backdrop-filter:blur(10px)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{color:#fff;font-size:1.3rem;font-weight:800}
+.menu a{color:#fff;text-decoration:none;margin:0 12px}
+.btn{background:var(--orange);color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-weight:700}
 
-/* HERO */
 .hero{
-  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-  url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600');
-  background-size:cover;
-  color:#fff;
-  padding:100px 0;
+background:linear-gradient(rgba(7,26,61,.85),rgba(7,26,61,.85)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop') center/cover;
+color:#fff;padding:110px 0
 }
 
-.hero h1{font-size:2.8rem}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:4rem;line-height:1}
+.orange{color:var(--orange)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:25px}
+.time{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;text-align:center}
+.time span{font-size:2rem;font-weight:800;display:block}
 
-/* COUNTDOWN */
-.countdown{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:20px;
-}
+section{padding:90px 0}
+.title{text-align:center;margin-bottom:50px}
+.title h2{font-size:2.5rem;color:var(--navy)}
+.line{width:70px;height:4px;background:var(--orange);margin:15px auto}
 
-.time{
-  background:rgba(255,255,255,.2);
-  padding:10px;
-  text-align:center;
-}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:#fff;border-radius:18px;padding:25px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
 
-.time span{
-  font-size:1.5rem;
-  font-weight:700;
-}
+.speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.speaker{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.speaker img{width:100%;height:280px;object-fit:cover}
+.speaker-content{padding:20px}
+.linkedin{display:inline-block;margin-top:10px;background:#eef2ff;padding:10px 14px;border-radius:10px;text-decoration:none}
 
-section{padding:60px 0}
+.sponsors{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.sponsor{height:120px;border:2px dashed #cbd5e1;border-radius:15px;display:flex;align-items:center;justify-content:center}
 
-/* GRID */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+.testimonials{background:#f8fafc}
+.faq details{background:#fff;margin-bottom:15px;padding:18px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.05)}
+.contact{background:var(--navy);color:#fff;padding:35px;border-radius:20px}
+.footer{background:#04122b;color:#fff;text-align:center;padding:30px}
+.cta-banner{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:50px;border-radius:25px;color:#fff;text-align:center}
 
-.card{
-  padding:20px;
-  background:#fff;
-  box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-/* SPEAKERS */
-.speakers{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.speaker img{width:100%}
-
-.footer{
-  background:#071a3d;
-  color:#fff;
-  text-align:center;
-  padding:20px;
+@media(max-width:768px){
+.hero-grid{grid-template-columns:1fr}
+.hero h1{font-size:2.7rem}
+.countdown{grid-template-columns:repeat(2,1fr)}
+.menu{display:none}
 }
 </style>
 </head>
@@ -76,131 +68,243 @@ section{padding:60px 0}
 <body>
 
 <header>
- <div class="container nav">
-   <h3 style="color:white">NTIC Alumni</h3>
-   <div>
-     <a href="#about">About</a>
-     <a href="#speakers">Speakers</a>
-     <a href="#sponsors">Sponsors</a>
-   </div>
-   <a href="#" class="btn">Register</a>
- </div>
+<div class="container nav">
+<div class="logo">NTIC Alumni</div>
+<div class="menu">
+<a href="#about">About</a>
+<a href="#speakers">Speakers</a>
+<a href="#sponsors">Sponsors</a>
+<a href="#faq">FAQ</a>
+</div>
+<a class="btn" href="https://forms.example.com">REGISTER NOW</a>
+</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
- <div class="container">
-   <h1>NTIC Alumni Business Networking Event 2026</h1>
-   <p>From Ideas to Sustainable Ventures</p>
+<div class="container hero-grid">
 
-   <div class="countdown">
-     <div class="time"><span id="days">0</span>Days</div>
-     <div class="time"><span id="hours">0</span>Hours</div>
-     <div class="time"><span id="minutes">0</span>Minutes</div>
-     <div class="time"><span id="seconds">0</span>Seconds</div>
-   </div>
+<div>
+<h1>NTIC ALUMNI <span class="orange">BUSINESS NETWORKING</span> EVENT 2026</h1>
+<p>From Ideas and Skills to a Sustainable Venture</p>
+<p>📅 25 July 2026 &nbsp;&nbsp; 📍 NTIC Abuja Co-Ed, Wuse 2, Abuja</p>
+<a class="btn" href="https://forms.example.com">Register Now</a>
+</div>
 
-   <br>
-   <a class="btn" href="#">Register Now</a>
- </div>
+<div>
+<h3>EVENT STARTS IN</h3>
+<div class="countdown">
+<div class="time"><span id="days">0</span>Days</div>
+<div class="time"><span id="hours">0</span>Hours</div>
+<div class="time"><span id="minutes">0</span>Minutes</div>
+<div class="time"><span id="seconds">0</span>Seconds</div>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
- <div class="container">
-   <h2>About</h2>
-   <div class="cards">
-     <div class="card">Connect with professionals</div>
-     <div class="card">Collaborate on ideas</div>
-     <div class="card">Create sustainable ventures</div>
-   </div>
- </div>
+<div class="container">
+<div class="title"><h2>About The Event</h2><div class="line"></div></div>
+
+<div class="cards">
+<div class="card"><h3>Connect</h3><p>Meet successful alumni, entrepreneurs and professionals.</p></div>
+<div class="card"><h3>Collaborate</h3><p>Discover partnerships and opportunities for growth.</p></div>
+<div class="card"><h3>Create Impact</h3><p>Turn ideas and skills into sustainable ventures.</p></div>
+</div>
+
+</div>
 </section>
 
-<!-- SPEAKERS -->
+<section>
+<div class="container">
+<div class="title"><h2>Why You Should Attend</h2><div class="line"></div></div>
+
+<div class="cards">
+<div class="card">Network with successful alumni and professionals.</div>
+<div class="card">Find business partners and collaborators.</div>
+<div class="card">Gain insights from industry experts.</div>
+<div class="card">Showcase your business and innovations.</div>
+<div class="card">Discover investment opportunities.</div>
+<div class="card">Build relationships that drive success.</div>
+</div>
+
+</div>
+</section>
+
 <section id="speakers">
- <div class="container">
-   <h2>Speakers</h2>
+<div class="container">
+<div class="title"><h2>Meet Our Speakers</h2><div class="line"></div></div>
 
-   <div class="speakers">
-     <script>
-       for(let i=1;i<=8;i++){
-         document.write(`
-           <div class="card">
-             <img src="https://via.placeholder.com/300?text=Speaker+${</div>
- </div>
+<div class="speakers">
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+1">
+<div class="speaker-content">
+<h3>Speaker 1</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+2">
+<div class="speaker-content">
+<h3>Speaker 2</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+3">
+<div class="speaker-content">
+<h3>Speaker 3</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+4">
+<div class="speaker-content">
+<h3>Speaker 4</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+5">
+<div class="speaker-content">
+<h3>Speaker 5</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+6">
+<div class="speaker-content">
+<h3>Speaker 6</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+7">
+<div class="speaker-content">
+<h3>Speaker 7</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+<div class="speaker">
+<img src="https://via.placeholder.com/600x600?text=Speaker+8">
+<div class="speaker-content">
+<h3>Speaker 8</h3>
+<p>Professional Speaker / Industry Expert</p>
+<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- SPONSORS -->
+<section class="testimonials">
+<div class="container">
+<div class="title"><h2>What Alumni Are Saying</h2><div class="line"></div></div>
+
+<div class="cards">
+<div class="card">The connections I made opened new opportunities.</div>
+<div class="card">A well-organized event with real business value.</div>
+<div class="card">Great speakers and meaningful networking.</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="cta-banner">
+<h2>Ready to Connect, Collaborate and Create Impact?</h2>
+<p>One Event. Endless Possibilities.</p>
+<a class="btn" href="https://forms.example.com">Register Now</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="card" style="background:#071a3d;color:white;text-align:center">
+<h2>Join Our WhatsApp Community</h2>
+<p>Get updates, reminders and networking opportunities.</p>
+<br>
+<a class="btn" href="https://wa.me/2349060484577">Join WhatsApp</a>
+</div>
+</div>
+</section>
+
 <section id="sponsors">
- <div class="container">
-   <h2>Sponsors</h2>
+<div class="container">
+<div class="title"><h2>Sponsors</h2><div class="line"></div></div>
 
-   <div class="cards">
-     <div class="card">Galaxy</div>
-     <div class="card">NTIC</div>
-     <div class="card">Sponsor 3</div>
-     <div class="card">Sponsor 4</div>
-   </div>
- </div>
+<div class="sponsors">
+<div class="sponsor">Galaxy Uniprep</div>
+<div class="sponsor">NTIC</div>
+<div class="sponsor">Sponsor 3</div>
+<div class="sponsor">Sponsor 4</div>
+<div class="sponsor">Available Slot</div>
+<div class="sponsor">Available Slot</div>
+</div>
+
+</div>
 </section>
 
-<footer class="footer">
- <p>© 2026 NTIC Alumni</p>
-</footer>
+<section id="faq">
+<div class="container">
+<div class="title"><h2>Frequently Asked Questions</h2><div class="line"></div></div>
 
-<!-- COUNTDOWN SCRIPT -->
+<div class="faq">
+<details><summary>Who can attend?</summary><p>Alumni, professionals, founders and invited guests.</p></details>
+<details><summary>Is registration required?</summary><p>Yes.</p></details>
+<details><summary>Can I showcase my business?</summary><p>Yes, exhibition opportunities will be announced.</p></details>
+<details><summary>How do I become a sponsor?</summary><p>Contact the organizing team.</p></details>
+</div>
+
+<div class="contact" style="margin-top:30px">
+<h3>Contact Us</h3>
+<p>📞 +234 800 123 4567</p>
+<p>✉️ info@nticalumni.org</p>
+<p>🌐 https://ntichub.com</p>
+<p>📍 NTIC Abuja Co-Ed, Wuse 2, Abuja</p>
+</div>
+
+</div>
+</section>
+
+<div class="footer">
+<p>Instagram: <a style="color:#fff" href="https://instagram.com/ntichub">@ntichub</a></p>
+<p>Website: <a style="color:#fff" href="https://ntichub.com">ntichub.com</a></p>
+<p>© 2026 NTIC Alumni Association</p>
+</div>
+
 <script>
-const target = new Date("2026-07-25").getTime();
+const target=new Date("2026-07-25T00:00:00").getTime();
 
 setInterval(()=>{
-  const now = new Date().getTime();
-  const diff = target - now;
+const now=new Date().getTime();
+const diff=target-now;
 
-  if(diff <= 0){
-    document.getElementById('days').innerText = 0;
-    document.getElementById('hours').innerText = 0;
-    document.getElementById('minutes').innerText = 0;
-    document.getElementById('seconds').innerText = 0;
-    return;
-  }
-
-  document.getElementById('days').innerText = Math.floor(diff/(1000*60*60*24));
-  document.getElementById('hours').innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  document.getElementById('minutes').innerText = Math.floor((diff%(1000*60*60))/(1000*60));
-  document.getElementById('seconds').innerText = Math.floor((diff%(1000*60))/1000);
+document.getElementById('days').innerText=Math.floor(diff/(1000*60*60*24));
+document.getElementById('hours').innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+document.getElementById('minutes').innerText=Math.floor((diff%(1000*60*60))/(1000*60));
+document.getElementById('seconds').innerText=Math.floor((diff%(1000*60))/1000);
 },1000);
 </script>
 
 </body>
 </html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NTIC Alumni Business Networking Event 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --navy:#071a3d;
-  --orange:#ff6b00;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif}
-
-.container{width:90%;margin:auto}
-
-header{
-  position:sticky;
-  top:0;
-  background:#071a3d;
-  padding:15px 0;
-}
-
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
