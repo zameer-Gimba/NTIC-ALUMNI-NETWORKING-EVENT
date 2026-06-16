@@ -1,310 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NTIC Alumni Business Networking Event 2026</title>
-<meta name="description" content="NTIC Alumni Business Networking Event 2026">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
---navy:#071a3d;--navy2:#0b234f;--orange:#ff6b00;--light:#f8fafc;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif;background:#fff;color:#10213d;line-height:1.7}
-.container{width:min(1200px,92%);margin:auto}
-header{position:sticky;top:0;z-index:999;background:rgba(7,26,61,.95);backdrop-filter:blur(10px)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{color:#fff;font-size:1.3rem;font-weight:800}
-.menu a{color:#fff;text-decoration:none;margin:0 12px}
-.btn{background:var(--orange);color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-weight:700}
-
-.hero{
-background:linear-gradient(rgba(7,26,61,.85),rgba(7,26,61,.85)),
-url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop') center/cover;
-color:#fff;padding:110px 0
-}
-
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-.hero h1{font-size:4rem;line-height:1}
-.orange{color:var(--orange)}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:25px}
-.time{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;text-align:center}
-.time span{font-size:2rem;font-weight:800;display:block}
-
-section{padding:90px 0}
-.title{text-align:center;margin-bottom:50px}
-.title h2{font-size:2.5rem;color:var(--navy)}
-.line{width:70px;height:4px;background:var(--orange);margin:15px auto}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:#fff;border-radius:18px;padding:25px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
-
-.speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-.speaker{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.08)}
-.speaker img{width:100%;height:280px;object-fit:cover}
-.speaker-content{padding:20px}
-.linkedin{display:inline-block;margin-top:10px;background:#eef2ff;padding:10px 14px;border-radius:10px;text-decoration:none}
-
-.sponsors{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
-.sponsor{height:120px;border:2px dashed #cbd5e1;border-radius:15px;display:flex;align-items:center;justify-content:center}
-
-.testimonials{background:#f8fafc}
-.faq details{background:#fff;margin-bottom:15px;padding:18px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.05)}
-.contact{background:var(--navy);color:#fff;padding:35px;border-radius:20px}
-.footer{background:#04122b;color:#fff;text-align:center;padding:30px}
-.cta-banner{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:50px;border-radius:25px;color:#fff;text-align:center}
-
-@media(max-width:768px){
-.hero-grid{grid-template-columns:1fr}
-.hero h1{font-size:2.7rem}
-.countdown{grid-template-columns:repeat(2,1fr)}
-.menu{display:none}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NTIC Alumni Business Networking Event 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-<div class="container nav">
-<div class="logo">NTIC Alumni</div>
-<div class="menu">
-<a href="#about">About</a>
-<a href="#speakers">Speakers</a>
-<a href="#sponsors">Sponsors</a>
-<a href="#faq">FAQ</a>
-</div>
-<a class="btn" href="https://forms.example.com">REGISTER NOW</a>
-</div>
-</header>
+  <!-- ===================== STICKY NAV ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo.png" alt="NTIC Alumni Logo" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<div class=\'logo-text\'>NTIC<br><span>ALUMNI</span></div>'" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#speakers" class="nav-link">Speakers</a></li>
+        <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+      <a href="https://example.com/register" target="_blank" class="btn-register nav-cta">REGISTER NOW</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-<section class="hero">
-<div class="container hero-grid">
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#speakers" class="mobile-link">Speakers</a>
+    <a href="#sponsors" class="mobile-link">Sponsors</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="https://example.com/register" target="_blank" class="btn-register mobile-cta">REGISTER NOW</a>
+  </div>
 
-<div>
-<h1>NTIC ALUMNI <span class="orange">BUSINESS NETWORKING</span> EVENT 2026</h1>
-<p>From Ideas and Skills to a Sustainable Venture</p>
-<p>📅 25 July 2026 &nbsp;&nbsp; 📍 NTIC Abuja Co-Ed, Wuse 2, Abuja</p>
-<a class="btn" href="https://forms.example.com">Register Now</a>
-</div>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <img src="images/hero-bg.jpg" alt="Hero background" class="hero-bg-img" onerror="this.style.display='none'" />
+    <div class="hero-content">
+      <h1 class="hero-title">
+        NTIC ALUMNI<br />
+        <span class="hero-accent">BUSINESS<br />NETWORKING<br />EVENT 2026</span>
+      </h1>
+      <p class="hero-subtitle">From Ideas and Skills<br />to a Sustainable Venture</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>25TH JULY 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>NTIC ABUJA CO-ED, WUSE 2, ABUJA</span>
+        </div>
+      </div>
+      <p class="hero-tagline">Connect. Collaborate. Create Impact.</p>
+      <a href="https://example.com/register" target="_blank" class="btn-register hero-btn">REGISTER NOW &rarr;</a>
+    </div>
+  </section>
 
-<div>
-<h3>EVENT STARTS IN</h3>
-<div class="countdown">
-<div class="time"><span id="days">0</span>Days</div>
-<div class="time"><span id="hours">0</span>Hours</div>
-<div class="time"><span id="minutes">0</span>Minutes</div>
-<div class="time"><span id="seconds">0</span>Seconds</div>
-</div>
-</div>
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <h2 class="section-title">ABOUT THE EVENT</h2>
+      <div class="section-divider"></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>The NTIC Alumni Business Networking Event is a premium gathering of innovators, entrepreneurs, professionals, and leaders committed to building sustainable ventures and creating lasting impact. This event is a platform to connect, share ideas, explore opportunities and build meaningful partnerships that drive growth.</p>
+        </div>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h4>Connect</h4>
+              <p>Meet and engage with like-minded alumni and professionals.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            </div>
+            <div>
+              <h4>Collaborate</h4>
+              <p>Discover partnerships and opportunities for growth.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <h4>Create Impact</h4>
+              <p>Transform ideas and skills into sustainable ventures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <!-- ===================== WHY ATTEND ===================== -->
+  <section class="why section" id="why">
+    <div class="container">
+      <h2 class="section-title">WHY YOU SHOULD ATTEND</h2>
+      <div class="section-divider"></div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <p>Network with successful alumni and professionals</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <p>Find business partners and collaborators</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p>Gain insights from industry experts</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <p>Showcase your business and innovations</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <p>Discover investment and growth opportunities</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <p>Build relationships that drive success and impact</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="about">
-<div class="container">
-<div class="title"><h2>About The Event</h2><div class="line"></div></div>
+  <!-- ===================== ONE EVENT BANNER ===================== -->
+  <section class="banner-dark">
+    <div class="banner-overlay"></div>
+    <img src="images/city-bg.jpg" alt="City background" class="banner-bg-img" onerror="this.style.display='none'" />
+    <div class="banner-content">
+      <h2 class="banner-heading">ONE EVENT.<br />ENDLESS POSSIBILITIES.</h2>
+      <p class="banner-italic">Be Part of Something Bigger.</p>
+    </div>
+  </section>
 
-<div class="cards">
-<div class="card"><h3>Connect</h3><p>Meet successful alumni, entrepreneurs and professionals.</p></div>
-<div class="card"><h3>Collaborate</h3><p>Discover partnerships and opportunities for growth.</p></div>
-<div class="card"><h3>Create Impact</h3><p>Turn ideas and skills into sustainable ventures.</p></div>
-</div>
+  <!-- ===================== COUNTDOWN ===================== -->
+  <section class="countdown-section">
+    <p class="countdown-label">EVENT STARTS IN</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-days">00</span>
+        <span class="countdown-unit">DAYS</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-hours">00</span>
+        <span class="countdown-unit">HOURS</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-mins">00</span>
+        <span class="countdown-unit">MINS</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-secs">00</span>
+        <span class="countdown-unit">SECS</span>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <!-- ===================== SPEAKERS ===================== -->
+  <section class="speakers section" id="speakers">
+    <div class="container">
+      <h2 class="section-title">MEET OUR SPEAKERS</h2>
+      <div class="section-divider"></div>
+      <div class="speakers-grid">
 
-<section>
-<div class="container">
-<div class="title"><h2>Why You Should Attend</h2><div class="line"></div></div>
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker1.jpg" alt="Adewale Yusuf" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Adewale+Yusuf&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Adewale Yusuf</h4>
+          <p class="speaker-role">Entrepreneur & Investor</p>
+          <p class="speaker-company">CEO, DevSphere</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-<div class="cards">
-<div class="card">Network with successful alumni and professionals.</div>
-<div class="card">Find business partners and collaborators.</div>
-<div class="card">Gain insights from industry experts.</div>
-<div class="card">Showcase your business and innovations.</div>
-<div class="card">Discover investment opportunities.</div>
-<div class="card">Build relationships that drive success.</div>
-</div>
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker2.jpg" alt="Ijeoma Nwosu" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Ijeoma+Nwosu&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Ijeoma Nwosu</h4>
+          <p class="speaker-role">Business Strategist</p>
+          <p class="speaker-company">Founder, Next Consulting</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-</div>
-</section>
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker3.jpg" alt="Tunde Adeyemi" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Tunde+Adeyemi&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Tunde Adeyemi</h4>
+          <p class="speaker-role">COO</p>
+          <p class="speaker-company">Greenmark Solutions</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-<section id="speakers">
-<div class="container">
-<div class="title"><h2>Meet Our Speakers</h2><div class="line"></div></div>
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker4.jpg" alt="Chidinma Okafor" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Chidinma+Okafor&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Chidinma Okafor</h4>
+          <p class="speaker-role">Marketing Executive</p>
+          <p class="speaker-company">MTN Nigeria</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-<div class="speakers">
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker5.jpg" alt="Emeka Obi" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Emeka+Obi&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Emeka Obi</h4>
+          <p class="speaker-role">Founder & CEO</p>
+          <p class="speaker-company">Krypton Industries</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+1">
-<div class="speaker-content">
-<h3>Speaker 1</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+        <div class="speaker-card">
+          <div class="speaker-img-wrap">
+            <img src="images/speaker6.jpg" alt="Maryam Bello" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Maryam+Bello&background=0D2C54&color=fff&size=200'" />
+          </div>
+          <h4>Maryam Bello</h4>
+          <p class="speaker-role">Startup Advisor</p>
+          <p class="speaker-company">Ventures Platform</p>
+          <a href="https://linkedin.com" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+2">
-<div class="speaker-content">
-<h3>Speaker 2</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+      </div>
+      <div class="speakers-cta">
+        <a href="#speakers" class="btn-outline">VIEW ALL SPEAKERS &rarr;</a>
+      </div>
+    </div>
+  </section>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+3">
-<div class="speaker-content">
-<h3>Speaker 3</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">WHAT ALUMNI ARE SAYING</h2>
+      <div class="section-divider"></div>
+      <div class="testimonials-grid">
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+4">
-<div class="speaker-content">
-<h3>Speaker 4</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+        <!-- EDITABLE TESTIMONIAL 1 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">&ldquo;</div>
+          <p class="testimonial-text" contenteditable="true" title="Click to edit">The connections I made at the last event opened doors I never imagined.</p>
+          <span class="testimonial-author">– David A., Entrepreneur</span>
+        </div>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+5">
-<div class="speaker-content">
-<h3>Speaker 5</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+        <!-- EDITABLE TESTIMONIAL 2 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">&ldquo;</div>
+          <p class="testimonial-text" contenteditable="true" title="Click to edit">A well-organized, impactful event that brings real value.</p>
+          <span class="testimonial-author">– Nnechi M., Consultant</span>
+        </div>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+6">
-<div class="speaker-content">
-<h3>Speaker 6</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+        <!-- EDITABLE TESTIMONIAL 3 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">&ldquo;</div>
+          <p class="testimonial-text" contenteditable="true" title="Click to edit">Great speakers, awesome people, real opportunities.</p>
+          <span class="testimonial-author">– Tunde O., Founder</span>
+        </div>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+7">
-<div class="speaker-content">
-<h3>Speaker 7</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+      </div>
+      <p class="edit-hint">✏️ Click on any quote above to edit it directly.</p>
+    </div>
+  </section>
 
-<div class="speaker">
-<img src="https://via.placeholder.com/600x600?text=Speaker+8">
-<div class="speaker-content">
-<h3>Speaker 8</h3>
-<p>Professional Speaker / Industry Expert</p>
-<a class="linkedin" href="https://linkedin.com">LinkedIn Profile</a>
-</div>
-</div>
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="cta-banner">
+    <div class="cta-banner-overlay"></div>
+    <img src="images/building.jpg" alt="Venue" class="cta-banner-bg" onerror="this.style.display='none'" />
+    <div class="cta-banner-content">
+      <h2>READY TO CONNECT,<br />COLLABORATE AND CREATE IMPACT?</h2>
+      <a href="https://example.com/register" target="_blank" class="btn-register">REGISTER NOW &rarr;</a>
+    </div>
+  </section>
 
-</div>
-</div>
-</section>
+  <!-- ===================== STAY CONNECTED ===================== -->
+  <section class="social section">
+    <div class="container text-center">
+      <h2 class="section-title">STAY CONNECTED</h2>
+      <p class="social-sub">Follow us for updates and more.</p>
+      <div class="social-links">
+        <a href="https://wa.me/2348130715161" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.103 1.523 5.83L.057 23.886a.5.5 0 0 0 .611.611l6.056-1.466A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.001-1.37l-.358-.214-3.718.9.916-3.626-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        </a>
+        <a href="https://instagram.com/ntichub" target="_blank" class="social-btn instagram" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://ntichub.com" target="_blank" class="social-btn website" aria-label="Website">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<section class="testimonials">
-<div class="container">
-<div class="title"><h2>What Alumni Are Saying</h2><div class="line"></div></div>
+  <!-- ===================== SPONSORS ===================== -->
+  <section class="sponsors section" id="sponsors">
+    <div class="container">
+      <h2 class="section-title">SPONSORS</h2>
+      <div class="section-divider"></div>
+      <div class="sponsors-grid">
+        <!-- Existing -->
+        <div class="sponsor-card">
+          <img src="images/sponsor-galaxy.png" alt="Galaxy Uniprep Centre" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'sponsor-placeholder\'>GALAXY<br><small>UNIPREP CENTRE</small></div>'" />
+        </div>
+        <div class="sponsor-card">
+          <img src="images/sponsor-ntic.png" alt="NTIC" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'sponsor-placeholder\'>NTIC</div>'" />
+        </div>
+        <!-- Placeholders -->
+        <div class="sponsor-card sponsor-placeholder-card">
+          <div class="sponsor-placeholder">YOUR LOGO HERE</div>
+        </div>
+        <div class="sponsor-card sponsor-placeholder-card">
+          <div class="sponsor-placeholder">YOUR LOGO HERE</div>
+        </div>
+        <div class="sponsor-card sponsor-placeholder-card">
+          <div class="sponsor-placeholder">YOUR LOGO HERE</div>
+        </div>
+        <div class="sponsor-card sponsor-placeholder-card">
+          <div class="sponsor-placeholder">YOUR LOGO HERE</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="cards">
-<div class="card">The connections I made opened new opportunities.</div>
-<div class="card">A well-organized event with real business value.</div>
-<div class="card">Great speakers and meaningful networking.</div>
-</div>
+  <!-- ===================== FAQ ===================== -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+      <div class="section-divider"></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Who can attend this event?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The event is open to NTIC alumni, business professionals, entrepreneurs, investors, and anyone interested in networking and business development.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is there a registration fee?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Please visit the registration page for current pricing and early bird offers.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What does registration cover?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Registration covers access to all sessions, networking activities, refreshments, and event materials.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can I showcase my business?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! There will be dedicated exhibition spaces for businesses to showcase their products and services. Select "Exhibiting / Showcasing my Business" during registration.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How can I become a sponsor?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>To become a sponsor, please contact us at info@nticalumni.org or reach out via WhatsApp for sponsorship packages and opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <h2 class="section-title">CONTACT US</h2>
+      <div class="section-divider"></div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          <span>+234 800 123 4567</span>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@nticalumni.org</span>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://www.nticalumni.org" target="_blank">www.nticalumni.org</a>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8692A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>NTIC Abuja Co-Ed,<br />Wuse 2, Abuja, Nigeria</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="cta-banner">
-<h2>Ready to Connect, Collaborate and Create Impact?</h2>
-<p>One Event. Endless Possibilities.</p>
-<a class="btn" href="https://forms.example.com">Register Now</a>
-</div>
-</div>
-</section>
+  <!-- ===================== WHATSAPP COMMUNITY ===================== -->
+  <section class="whatsapp-section">
+    <div class="container">
+      <div class="whatsapp-box">
+        <div class="whatsapp-text">
+          <h3>JOIN OUR WHATSAPP COMMUNITY</h3>
+          <p>Get updates, reminders and more</p>
+        </div>
+        <div class="whatsapp-right">
+          <svg class="wa-icon" width="48" height="48" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.103 1.523 5.83L.057 23.886a.5.5 0 0 0 .611.611l6.056-1.466A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.001-1.37l-.358-.214-3.718.9.916-3.626-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          <a href="https://wa.me/2348130715161" target="_blank" class="btn-register wa-btn">JOIN NOW &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="card" style="background:#071a3d;color:white;text-align:center">
-<h2>Join Our WhatsApp Community</h2>
-<p>Get updates, reminders and networking opportunities.</p>
-<br>
-<a class="btn" href="https://wa.me/2349060484577">Join WhatsApp</a>
-</div>
-</div>
-</section>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 NTIC Alumni Association. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-<section id="sponsors">
-<div class="container">
-<div class="title"><h2>Sponsors</h2><div class="line"></div></div>
+  <!-- ===================== STICKY CTA (mobile) ===================== -->
+  <div class="sticky-cta">
+    <a href="https://example.com/register" target="_blank" class="btn-register sticky-btn">REGISTER NOW &rarr;</a>
+  </div>
 
-<div class="sponsors">
-<div class="sponsor">Galaxy Uniprep</div>
-<div class="sponsor">NTIC</div>
-<div class="sponsor">Sponsor 3</div>
-<div class="sponsor">Sponsor 4</div>
-<div class="sponsor">Available Slot</div>
-<div class="sponsor">Available Slot</div>
-</div>
-
-</div>
-</section>
-
-<section id="faq">
-<div class="container">
-<div class="title"><h2>Frequently Asked Questions</h2><div class="line"></div></div>
-
-<div class="faq">
-<details><summary>Who can attend?</summary><p>Alumni, professionals, founders and invited guests.</p></details>
-<details><summary>Is registration required?</summary><p>Yes.</p></details>
-<details><summary>Can I showcase my business?</summary><p>Yes, exhibition opportunities will be announced.</p></details>
-<details><summary>How do I become a sponsor?</summary><p>Contact the organizing team.</p></details>
-</div>
-
-<div class="contact" style="margin-top:30px">
-<h3>Contact Us</h3>
-<p>📞 +234 800 123 4567</p>
-<p>✉️ info@nticalumni.org</p>
-<p>🌐 https://ntichub.com</p>
-<p>📍 NTIC Abuja Co-Ed, Wuse 2, Abuja</p>
-</div>
-
-</div>
-</section>
-
-<div class="footer">
-<p>Instagram: <a style="color:#fff" href="https://instagram.com/ntichub">@ntichub</a></p>
-<p>Website: <a style="color:#fff" href="https://ntichub.com">ntichub.com</a></p>
-<p>© 2026 NTIC Alumni Association</p>
-</div>
-
-<script>
-const target=new Date("2026-07-25T00:00:00").getTime();
-
-setInterval(()=>{
-const now=new Date().getTime();
-const diff=target-now;
-
-document.getElementById('days').innerText=Math.floor(diff/(1000*60*60*24));
-document.getElementById('hours').innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-document.getElementById('minutes').innerText=Math.floor((diff%(1000*60*60))/(1000*60));
-document.getElementById('seconds').innerText=Math.floor((diff%(1000*60))/1000);
-},1000);
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
