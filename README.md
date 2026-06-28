@@ -12,12 +12,12 @@ A professional event landing page for the **NTIC Alumni Business Networking Even
 ├── style.css         # All styles
 ├── script.js         # Countdown, FAQ accordion, scroll effects
 ├── README.md         # This file
-└── images/           # ← ADD YOUR IMAGES HERE
+└── images/           # ← IMAGES HERE
     ├── logo.png           # NTIC Alumni logo (navbar)
     ├── hero-bg.jpg        # Hero section background
     ├── city-bg.jpg        # "One Event" dark banner background
     ├── building.jpg       # CTA section background (venue)
-    ├── speaker1.jpg       # Adewale Yusuf
+    ├── speaker1.jpg       # Adewale Yusuf (All the speakers' names are dummy)
     ├── speaker2.jpg       # Ijeoma Nwosu
     ├── speaker3.jpg       # Tunde Adeyemi
     ├── speaker4.jpg       # Chidinma Okafor
@@ -75,10 +75,10 @@ This is a **pure static site** — no build step needed.
 
 ---
 
-## 📞 Contact Info (update in index.html if needed)
-- **Phone:** +234 800 123 4567
-- **Email:** info@nticalumni.org
-- **Website:** www.nticalumni.org
+## 📞 Contact Info
+- **Phone:** +2349060484577
+- **Email:** info.alumni@ntic.edu.ng
+- **Website:** https://portal.ntichub.org
 - **Address:** NTIC Abuja Co-Ed, Wuse 2, Abuja, Nigeria
 - **WhatsApp:** +2348130715161
 - **Instagram:** @ntichub
