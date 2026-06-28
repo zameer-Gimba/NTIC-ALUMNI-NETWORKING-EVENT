@@ -114,40 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // ======== STICKY CTA ========
 const hero      = document.getElementById('home');
 const contact   = document.getElementById('contact');
-const footer    = document.querySelector('.footer');
 const stickyCta = document.querySelector('.sticky-cta');
 
-if (stickyCta && hero && contact && footer) {
+if (stickyCta && hero && contact) {
+  function updateCta() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const contactTop = contact.getBoundingClientRect().top;
 
-  let heroGone    = false;
-  let contactSeen = false;
-
-  // Track when hero leaves view
-  new IntersectionObserver(([e]) => {
-    heroGone = !e.isIntersecting;
-    update();
-  }, { threshold: 0.1 }).observe(hero);
-
-  // Track when contact OR anything below it enters view
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) contactSeen = true;
-    // Reset only if user scrolls back above contact
-    const rect = contact.getBoundingClientRect();
-    if (rect.top > window.innerHeight) contactSeen = false;
-    update();
-  }, { threshold: 0.1 }).observe(contact);
-
-  // Also hide when footer is visible
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) contactSeen = true;
-    update();
-  }, { threshold: 0 }).observe(footer);
-
-  function update() {
-    stickyCta.style.display = (heroGone && !contactSeen) ? 'block' : 'none';
+    // Show only when:
+    // 1. Hero has fully scrolled above viewport (heroBottom < 0)
+    // 2. Contact section hasn't entered viewport yet (contactTop > window height)
+    // This works perfectly in both scroll directions automatically.
+    stickyCta.style.display =
+      (heroBottom < 0 && contactTop > window.innerHeight) ? 'block' : 'none';
   }
-}
 
+  window.addEventListener('scroll', updateCta, { passive: true });
+  updateCta(); // run once on load in case page is already scrolled
+}
   // ======== SMOOTH SCROLL ========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
