@@ -168,8 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObs.observe(el);
   });
 // ======== SPEAKER SLIDER ========
-  // Append this block inside the DOMContentLoaded listener in script.js
-  // (or just paste it at the bottom of the file — it is self-contained)
 
   (function () {
     const slides   = document.querySelectorAll('.s-slide');
@@ -181,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!slides.length || !prevBtn || !nextBtn) return;
 
-    const DELAY     = 3000;   // ms between slides
-    const ANIM_DUR  = 480;    // ms — matches CSS animation duration
+    const DELAY     = 5000;   // ms between slides
+    const ANIM_DUR  = 500;    // ms — matches CSS animation duration
 
     let current   = 0;
     let timer     = null;
