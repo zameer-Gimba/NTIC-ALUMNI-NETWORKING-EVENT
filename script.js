@@ -111,21 +111,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ======== STICKY CTA (show after hero) ========
-  const hero = document.getElementById('home');
-  const stickyCta = document.querySelector('.sticky-cta');
+  // ======== STICKY CTA ========
+const hero       = document.getElementById('home');
+const contact    = document.getElementById('contact');
+const stickyCta  = document.querySelector('.sticky-cta');
 
-  if (stickyCta && hero) {
-    const heroObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
+if (stickyCta && hero && contact) {
+
+  const heroObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) {
+      stickyCta.style.display = 'block';
+    } else {
+      stickyCta.style.display = 'none';
+    }
+  }, { threshold: 0.1 });
+
+  const contactObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      stickyCta.style.display = 'none';   // hide when contact section is visible
+    } else {
+      // only restore if hero is also out of view
+      const heroRect = hero.getBoundingClientRect();
+      if (heroRect.bottom < 0) {
         stickyCta.style.display = 'block';
-      } else {
-        stickyCta.style.display = 'none';
       }
-    }, { threshold: 0.1 });
+    }
+  }, { threshold: 0.1 });
 
-    heroObserver.observe(hero);
-  }
+  heroObserver.observe(hero);
+  contactObserver.observe(contact);
+}
 
 
   // ======== SMOOTH SCROLL ========
