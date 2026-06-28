@@ -112,36 +112,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ======== STICKY CTA ========
-const hero       = document.getElementById('home');
-const contact    = document.getElementById('contact');
-const stickyCta  = document.querySelector('.sticky-cta');
+const hero      = document.getElementById('home');
+const contact   = document.getElementById('contact');
+const footer    = document.querySelector('.footer');
+const stickyCta = document.querySelector('.sticky-cta');
 
-if (stickyCta && hero && contact) {
+if (stickyCta && hero && contact && footer) {
 
-  const heroObserver = new IntersectionObserver(([entry]) => {
-    if (!entry.isIntersecting) {
-      stickyCta.style.display = 'block';
-    } else {
-      stickyCta.style.display = 'none';
-    }
-  }, { threshold: 0.1 });
+  let heroGone    = false;
+  let contactSeen = false;
 
-  const contactObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      stickyCta.style.display = 'none';   // hide when contact section is visible
-    } else {
-      // only restore if hero is also out of view
-      const heroRect = hero.getBoundingClientRect();
-      if (heroRect.bottom < 0) {
-        stickyCta.style.display = 'block';
-      }
-    }
-  }, { threshold: 0.1 });
+  // Track when hero leaves view
+  new IntersectionObserver(([e]) => {
+    heroGone = !e.isIntersecting;
+    update();
+  }, { threshold: 0.1 }).observe(hero);
 
-  heroObserver.observe(hero);
-  contactObserver.observe(contact);
+  // Track when contact OR anything below it enters view
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) contactSeen = true;
+    // Reset only if user scrolls back above contact
+    const rect = contact.getBoundingClientRect();
+    if (rect.top > window.innerHeight) contactSeen = false;
+    update();
+  }, { threshold: 0.1 }).observe(contact);
+
+  // Also hide when footer is visible
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) contactSeen = true;
+    update();
+  }, { threshold: 0 }).observe(footer);
+
+  function update() {
+    stickyCta.style.display = (heroGone && !contactSeen) ? 'block' : 'none';
+  }
 }
-
 
   // ======== SMOOTH SCROLL ========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
