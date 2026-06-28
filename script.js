@@ -167,5 +167,190 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     revealObs.observe(el);
   });
+// ======== SPEAKER SLIDER ========
+  // Append this block inside the DOMContentLoaded listener in script.js
+  // (or just paste it at the bottom of the file — it is self-contained)
 
+  (function () {
+    const slides   = document.querySelectorAll('.s-slide');
+    const dots     = document.querySelectorAll('.s-dot');
+    const prevBtn  = document.getElementById('sPrev');
+    const nextBtn  = document.getElementById('sNext');
+    const wrapper  = document.getElementById('speakerSlider');
+    const bar      = document.getElementById('sProgressBar');
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    const DELAY     = 3000;   // ms between slides
+    const ANIM_DUR  = 480;    // ms — matches CSS animation duration
+
+    let current   = 0;
+    let timer     = null;
+    let animating = false;
+
+    /* ── Go to a specific slide ─────────────────────────────────── */
+    function goTo(index, direction) {
+      if (animating) return;
+      animating = true;
+
+      // Determine direction: +1 = right→left entry, -1 = left→right entry
+      const dir = direction !== undefined
+        ? direction
+        : (index > current ? 1 : -1);
+
+      // Hide current slide
+      slides[current].classList.remove('active', 'anim-right', 'anim-left');
+      dots[current].classList.remove('active');
+
+      // Wrap new index
+      current = ((index % slides.length) + slides.length) % slides.length;
+
+      // Show new slide with correct entrance animation
+      slides[current].classList.add('active', dir >= 0 ? 'anim-right' : 'anim-left');
+      dots[current].classList.add('active');
+
+      // Unlock after animation completes
+      setTimeout(() => {
+        slides[current].classList.remove('anim-right', 'anim-left');
+        animating = false;
+      }, ANIM_DUR);
+
+      // Restart progress bar
+      resetBar();
+    }
+
+    /* ── Progress bar ───────────────────────────────────────────── */
+    function resetBar() {
+      if (!bar) return;
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      // Force reflow so the browser registers the reset
+      void bar.offsetWidth;
+      bar.style.transition = `width ${DELAY}ms linear`;
+      bar.style.width = '100%';
+    }
+
+    function pauseBar() {
+      if (!bar) return;
+      const computed = getComputedStyle(bar).width;
+      bar.style.transition = 'none';
+      bar.style.width = computed;   // freeze at current position
+    }
+
+    function resumeBar(remainingMs) {
+      if (!bar) return;
+      void bar.offsetWidth;
+      bar.style.transition = `width ${remainingMs}ms linear`;
+      bar.style.width = '100%';
+    }
+
+    /* ── Auto-play ──────────────────────────────────────────────── */
+    let slideStartTime = Date.now();
+
+    function startAuto() {
+      stopAuto();
+      slideStartTime = Date.now();
+      resetBar();
+      timer = setInterval(() => goTo(current + 1, 1), DELAY);
+    }
+
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+      pauseBar();
+    }
+
+    function resumeAuto() {
+      stopAuto();
+      // Calculate how much of the current slide's time has elapsed
+      const elapsed  = Date.now() - slideStartTime;
+      const remaining = Math.max(0, DELAY - elapsed);
+      resumeBar(remaining);
+      timer = setTimeout(() => {
+        goTo(current + 1, 1);
+        startAuto();          // start regular interval from next slide
+      }, remaining);
+    }
+
+    /* ── Arrow buttons ──────────────────────────────────────────── */
+    prevBtn.addEventListener('click', () => {
+      goTo(current - 1, -1);
+      slideStartTime = Date.now();
+      startAuto();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      goTo(current + 1, 1);
+      slideStartTime = Date.now();
+      startAuto();
+    });
+
+    /* ── Dot buttons ────────────────────────────────────────────── */
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.dataset.slide, 10);
+        if (idx === current) return;
+        const dir = idx > current ? 1 : -1;
+        goTo(idx, dir);
+        slideStartTime = Date.now();
+        startAuto();
+      });
+    });
+
+    /* ── Pause on hover ─────────────────────────────────────────── */
+    wrapper.addEventListener('mouseenter', () => {
+      stopAuto();
+      wrapper.classList.add('paused');
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      wrapper.classList.remove('paused');
+      slideStartTime = Date.now();
+      startAuto();
+    });
+
+    /* ── Touch / swipe support ──────────────────────────────────── */
+    let touchX = 0;
+
+    wrapper.addEventListener('touchstart', e => {
+      touchX = e.touches[0].clientX;
+      stopAuto();
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 45) {
+        dx < 0 ? goTo(current + 1, 1) : goTo(current - 1, -1);
+      }
+      slideStartTime = Date.now();
+      startAuto();
+    }, { passive: true });
+
+    /* ── Keyboard navigation (only when slider is in viewport) ──── */
+    document.addEventListener('keydown', e => {
+      if (!isVisible(wrapper)) return;
+      if (e.key === 'ArrowRight') { goTo(current + 1,  1); slideStartTime = Date.now(); startAuto(); }
+      if (e.key === 'ArrowLeft')  { goTo(current - 1, -1); slideStartTime = Date.now(); startAuto(); }
+    });
+
+    /* ── Start auto-play only when section enters the viewport ──── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAuto();
+        } else {
+          stopAuto();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    observer.observe(document.getElementById('speakers'));
+
+    /* ── Helpers ────────────────────────────────────────────────── */
+    function isVisible(el) {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    }
+
+  })();
+  // ======== END SPEAKER SLIDER ========
 });
