@@ -678,14 +678,14 @@ ul { list-style: none; }
 .exhibitors { background: var(--light-bg); }
 .exhibitor-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 12px;
   margin-bottom: 16px;
 }
 .exhibitor-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 3px;
   box-shadow: var(--shadow);
   position: relative;
 } 
@@ -694,7 +694,7 @@ ul { list-style: none; }
   display: block;
   font-size: 0.5rem;
   margin-top: 2px;
-  font-weight: 400;
+  font-weight: 200;
 }
 .exhibitor-placeholder-card { border-style: dashed; }
 .exhibitor-logo.hidden { display: none; }
