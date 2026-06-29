@@ -679,8 +679,8 @@ ul { list-style: none; }
 .exhibitor-grid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 .exhibitor-card {
   background: var(--white);
