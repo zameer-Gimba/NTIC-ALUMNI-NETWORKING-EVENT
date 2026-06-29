@@ -674,6 +674,10 @@ ul { list-style: none; }
 }
 .sponsor-placeholder-card { border-style: dashed; }
 
+/* ======== EXHIBITION ======== */
+.exhibitor-logo.hidden { display: none; }
+.exhibitor-card:has(.exhibitor-logo:not(.hidden)) .exhibitor-coming-soon { display: none; }
+
 /* ======== FAQ ======== */
 .faq { background: var(--white); }
 .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
