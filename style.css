@@ -676,33 +676,20 @@ ul { list-style: none; }
 
 /* ======== EXHIBITION ======== */
 .exhibitors { background: var(--light-bg); }
-.exhibors-grid {
+.exhibitor-grid {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 16px;
 }
 .exhibitor-card {
   background: var(--white);
-  border: 2px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.exhibitor-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
-.exhibitor-card img { max-height: 100px; object-fit: contain; }
-.exhibitor-placeholder {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 0.65rem;
-  color: var(--text-light);
-  text-align: center;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+  padding: 28px;
+  box-shadow: var(--shadow);
+  position: relative;
+} 
+.exhibitors { background: var(--light-bg); }
 .exhibitor-placeholder small {
   display: block;
   font-size: 0.5rem;
