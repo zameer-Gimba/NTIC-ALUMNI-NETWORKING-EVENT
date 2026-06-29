@@ -656,7 +656,7 @@ ul { list-style: none; }
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .sponsor-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
-.sponsor-card img { max-height: 300px; object-fit: contain; }
+.sponsor-card img { max-height: 250px; object-fit: contain; }
 .sponsor-placeholder {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
