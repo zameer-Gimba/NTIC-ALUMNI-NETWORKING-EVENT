@@ -696,9 +696,7 @@ ul { list-style: none; }
   margin-top: 2px;
   font-weight: 200;
 }
-.exhibitor-placeholder-card { border-style: dashed; }
-.exhibitor-logo.hidden { display: none; }
-.exhibitor-card:has(.exhibitor-logo:not(.hidden)) .exhibitor-coming-soon { display: none; }
+
 
 /* ======== FAQ ======== */
 .faq { background: var(--white); }
