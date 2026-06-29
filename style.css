@@ -675,6 +675,41 @@ ul { list-style: none; }
 .sponsor-placeholder-card { border-style: dashed; }
 
 /* ======== EXHIBITION ======== */
+.exhibitors { background: var(--light-bg); }
+.exhibors-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 16px;
+}
+.exhibitor-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.exhibitor-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
+.exhibitor-card img { max-height: 100px; object-fit: contain; }
+.exhibitor-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.exhibitor-placeholder small {
+  display: block;
+  font-size: 0.5rem;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.exhibitor-placeholder-card { border-style: dashed; }
 .exhibitor-logo.hidden { display: none; }
 .exhibitor-card:has(.exhibitor-logo:not(.hidden)) .exhibitor-coming-soon { display: none; }
 
