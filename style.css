@@ -675,36 +675,115 @@ ul { list-style: none; }
 .sponsor-placeholder-card { border-style: dashed; }
 
 /* ======== EXHIBITION ======== */
-.exhibitors { background: var(--light-bg); }
-.exhibitor-grid {
-  display: grid;
-  /* 1. Forces exactly 9 columns, ignoring text width overflows */
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  gap: 6px;
-  margin-bottom: 8px;
-  width: 100%; /* Ensures container spans full width */
-}
-
-.exhibitor-card {
+exhibitors {
   background: var(--white);
-  border-radius: var(--radius);
-  padding: 3px;
-  box-shadow: var(--shadow);
-  position: relative;
-  
-  /* 2. Prevents content inside the card from forcing a new line */
-  overflow: hidden; 
-  min-width: 0; 
 }
-
-/* 3. If you have images inside the cards, force them to shrink */
+ 
+.exhibitors-sub {
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 0.92rem;
+  margin-top: -24px;
+  margin-bottom: 36px;
+}
+ 
+.exhibitors-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 14px;
+}
+ 
+.exhibitor-card {
+  position: relative;
+  background: var(--light-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+ 
+.exhibitor-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 14px rgba(13, 44, 84, 0.10);
+  transform: translateY(-2px);
+}
+ 
 .exhibitor-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
-
-
+ 
+/* ── "Coming Soon" placeholder overlay ──────────────────────────────── */
+/* Sits on top of the (currently missing/placeholder) logo image.
+   Once a real logo file is added and "revealed" class is applied,
+   this overlay is hidden via the .revealed rule below. */
+ 
+.ex-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--light-bg);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.56rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+ 
+.ex-soon svg {
+  opacity: 0.55;
+  margin-bottom: 2px;
+}
+ 
+/* ── Reveal state: add class="exhibitor-card revealed" once a real
+   logo is in place — this hides the "Coming Soon" overlay ─────────── */
+.exhibitor-card.revealed .ex-soon {
+  display: none;
+}
+ 
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .exhibitors-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+  .ex-soon { font-size: 0.5rem; }
+}
+ 
+@media (max-width: 640px) {
+  .exhibitors-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .ex-soon {
+    font-size: 0.46rem;
+    gap: 2px;
+  }
+  .ex-soon svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+ 
+@media (max-width: 400px) {
+  .exhibitors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 /* ======== FAQ ======== */
 .faq { background: var(--white); }
 .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
