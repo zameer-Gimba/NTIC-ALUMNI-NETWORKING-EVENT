@@ -653,7 +653,6 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   min-height: 120px;
-  object-fit: contain;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .sponsor-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
