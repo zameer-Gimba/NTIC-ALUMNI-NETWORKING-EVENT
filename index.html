@@ -1117,6 +1117,7 @@ path to your PDF in the repository. For example if you put it in a
 =======================================================================-->
 
   <!-- ===================== T&C MODAL ===================== -->
+  <!-- ===================== T&C MODAL ===================== -->
   <div class="tc-modal-backdrop" id="tcModalBackdrop" role="dialog"
        aria-modal="true" aria-labelledby="tcModalTitle">
     <div class="tc-modal">
@@ -1127,16 +1128,8 @@ path to your PDF in the repository. For example if you put it in a
       </div>
 
       <div class="tc-modal-body">
-        <!--
-          Replace the src below with your actual PDF path.
-          If your PDF is named "TC.pdf" and is in the root folder: src="TC.pdf"
-          If it is in a documents folder: src="documents/TC.pdf"
-        -->
-        <iframe
-          src="documents/terms-and-conditions.pdf.docx"
-          title="Terms and Conditions"
-          type="application/docx">
-        </iframe>
+        <!-- src is intentionally empty — JS sets it only when modal opens -->
+        <iframe id="tcFrame" src="" title="Terms and Conditions"></iframe>
       </div>
 
       <div class="tc-modal-footer">
@@ -1156,6 +1149,7 @@ path to your PDF in the repository. For example if you put it in a
 
     </div>
   </div>
+  <!-- ===================== END T&C MODAL ===================== -->
   <!-- ===================== END T&C MODAL ===================== -->
 
   <!-- ===================== STICKY CTA (mobile) ===================== -->
