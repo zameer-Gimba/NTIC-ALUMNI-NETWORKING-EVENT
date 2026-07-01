@@ -1093,7 +1093,7 @@ Find your existing footer and REPLACE it with this:
     <div class="container">
       <p>&copy; 2026 NTIC Alumni Association. All Rights Reserved.</p>
       <div class="footer-links">
-        <button class="footer-tc-link" id="tcLink">Terms &amp; Conditions</button>
+        <a href="terms.html" class="footer-tc-link" target="_blank">Terms &amp; Conditions</a>
       </div>
     </div>
     <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
@@ -1105,52 +1105,6 @@ Find your existing footer and REPLACE it with this:
       <span class="btt-label">Back to Top</span>
     </button>
   </footer>
-
-<!--
-── CHANGE 2: T&C MODAL ─────────────────────────────────────────────────
-Paste this block immediately BEFORE the closing </body> tag
-(after the sticky-cta div, before <script src="script.js">):
-
-IMPORTANT: Replace "documents/terms-and-conditions.pdf" with the actual
-path to your PDF in the repository. For example if you put it in a
-/documents/ folder it would be: documents/terms-and-conditions.pdf
-=======================================================================-->
-
-  <!-- ===================== T&C MODAL ===================== -->
-  <!-- ===================== T&C MODAL ===================== -->
-  <div class="tc-modal-backdrop" id="tcModalBackdrop" role="dialog"
-       aria-modal="true" aria-labelledby="tcModalTitle">
-    <div class="tc-modal">
-
-      <div class="tc-modal-header">
-        <h3 id="tcModalTitle">Terms &amp; Conditions</h3>
-        <button class="tc-modal-close" id="tcModalClose" aria-label="Close">&#x2715;</button>
-      </div>
-
-      <div class="tc-modal-body">
-        <!-- src is intentionally empty — JS sets it only when modal opens -->
-        <iframe id="tcFrame" src="" title="Terms and Conditions"></iframe>
-      </div>
-
-      <div class="tc-modal-footer">
-        <p>Can&rsquo;t see the Document? Download it directly.</p>
-        <a href="documents/terms-and-conditions.pdf"
-           download class="tc-download">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5"
-               stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download Document
-        </a>
-      </div>
-
-    </div>
-  </div>
-  <!-- ===================== END T&C MODAL ===================== -->
-  <!-- ===================== END T&C MODAL ===================== -->
 
   <!-- ===================== STICKY CTA (mobile) ===================== -->
   <div class="sticky-cta">
