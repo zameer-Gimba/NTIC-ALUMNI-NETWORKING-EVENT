@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions — NTIC Alumni Networking Event 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    .tc-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .tc-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .tc-back:hover { color: var(--orange); }
+    .tc-page-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .tc-subtitle {
+      color: var(--text-light);
+      font-size: 0.85rem;
+      margin-bottom: 36px;
+    }
+    .tc-embed-wrap {
+      width: 100%;
+      height: 80vh;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(13,44,84,0.12);
+      border: 1px solid var(--border);
+    }
+    .tc-embed-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .tc-download-row {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .tc-download-row p {
+      color: var(--text-light);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body style="background: var(--light-bg); padding-top: 68px;">
+
+  <!-- Minimal nav bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="NTIC Alumni Logo"
+             onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<div class=\'logo-text\'>NTIC<br><span>ALUMNI</span></div>'" />
+      </a>
+      <a href="index.html" class="btn-register nav-cta">&#8592; Back to Event</a>
+    </div>
+  </nav>
+
+  <div class="tc-page">
+    <a href="index.html" class="tc-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to Event Page
+    </a>
+
+    <h1 class="tc-page-title">Terms &amp; Conditions</h1>
+    <p class="tc-subtitle">NTIC Alumni Business Networking Event 2026 &mdash; Please read carefully before registering.</p>
+
+    <div class="tc-embed-wrap">
+      <iframe
+        src="documents/terms-and-conditions.pdf"
+        title="Terms and Conditions PDF">
+      </iframe>
+    </div>
+
+    <div class="tc-download-row">
+      <p>PDF not displaying? Use the download button to view it.</p>
+      <a href="documents/terms-and-conditions.pdf" download class="tc-download">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
