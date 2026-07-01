@@ -334,91 +334,10 @@ if (stickyCta && hero && contact) {
 
   })();
   // ======== END SPEAKER SLIDER ========
-  // ======== END SPEAKER SLIDER ========
 });
 // ======== BACK TO TOP ========
 document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-/* ======================================================================
-   STEP 2 OF 3 — style.css
-   Append the contents of mc_mod_and_tc.css to the bottom of style.css
 
-   Also add this ONE rule to fix the flash/conflict on first load.
-   Find your existing .s-slide rule and ADD the will-change property:
-   ====================================================================== */
-
-/*
-  Find this existing rule in your style.css:
-  
-    .s-slide {
-      display: none;
-      ...
-    }
-
-  ADD this line inside it:
-    will-change: opacity, transform;
-
-  That tells the browser to composite the layer early and eliminates
-  the first-load flash where two slides briefly overlap.
-*/
-
-
-/* ======================================================================
-   STEP 3 OF 3 — script.js
-   
-   TWO changes needed in script.js:
-   
-   A) SLIDER FLASH FIX — find the (function() { ... })() block and
-      replace the very first line after the variable declarations:
-      
-      OLD:  if (!slides.length || !prevBtn || !nextBtn) return;
-      
-      NEW:  if (!slides.length || !prevBtn || !nextBtn) return;
-            // Hide all slides immediately to prevent flash on load
-            slides.forEach(s => s.classList.remove('active'));
-            slides[0].classList.add('active');
-
-   B) T&C MODAL — append this entire block at the bottom of
-      the DOMContentLoaded callback (just before the final });)
-      
-   ====================================================================== */
-
-  // ======== TERMS & CONDITIONS MODAL ========
-  const tcLink    = document.getElementById('tcLink');
-  const tcBackdrop = document.getElementById('tcModalBackdrop');
-  const tcClose   = document.getElementById('tcModalClose');
-
-  if (tcLink && tcBackdrop && tcClose) {
-
-    // Open
-    tcLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      tcBackdrop.classList.add('open');
-      document.body.style.overflow = 'hidden'; // prevent background scroll
-    });
-
-    // Close via X button
-    tcClose.addEventListener('click', () => {
-      tcBackdrop.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-
-    // Close by clicking outside the modal box
-    tcBackdrop.addEventListener('click', (e) => {
-      if (e.target === tcBackdrop) {
-        tcBackdrop.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && tcBackdrop.classList.contains('open')) {
-        tcBackdrop.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-  // ======== END TERMS & CONDITIONS MODAL ========
 });
