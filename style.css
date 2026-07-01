@@ -1341,3 +1341,217 @@ exhibitors {
     opacity: 1;
   }
 }
+/* ======================================================================
+   MC & MODERATOR BADGE + ROLE COLOURS
+   Append this block to the bottom of style.css
+   ====================================================================== */
+
+/* ── MC badge — golden yellow ── */
+.mc-badge {
+  background: #C9A84C;
+  color: #1a1a1a;
+}
+
+/* ── Moderator badge — deep teal/slate ── */
+.moderator-badge {
+  background: #1B4F72;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.4);
+}
+
+/* ── MC role text ── */
+.s-role--mc {
+  color: #C9A84C;
+}
+
+/* ── Moderator role text ── */
+.s-role--mod {
+  color: #1B4F72;
+}
+
+/* ── MC rule divider ── */
+.s-rule--mc {
+  background: #C9A84C;
+}
+
+/* ── Moderator rule divider ── */
+.s-rule--mod {
+  background: #1B4F72;
+}
+
+/* ── MC LinkedIn button ── */
+.s-linkedin--mc {
+  background: #C9A84C;
+  color: #1a1a1a;
+}
+.s-linkedin--mc:hover {
+  background: #b8933d;
+}
+
+/* ── Moderator LinkedIn button ── */
+.s-linkedin--mod {
+  background: #1B4F72;
+  color: #fff;
+}
+.s-linkedin--mod:hover {
+  background: #154060;
+}
+
+/* ======================================================================
+   TERMS & CONDITIONS MODAL
+   Append this block directly after the MC/Moderator block above
+   ====================================================================== */
+
+/* ── Footer link ── */
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.footer-tc-link {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.78rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0;
+}
+.footer-tc-link:hover {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+/* ── Modal backdrop ── */
+.tc-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.tc-modal-backdrop.open {
+  display: flex;
+}
+
+/* ── Modal box ── */
+.tc-modal {
+  background: var(--white);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 780px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.40);
+  animation: tcFadeIn 0.25s ease;
+}
+
+@keyframes tcFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Modal header ── */
+.tc-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.tc-modal-header h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.tc-modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--light-bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-mid);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.tc-modal-close:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* ── PDF embed ── */
+.tc-modal-body {
+  flex: 1;
+  overflow: hidden;
+}
+.tc-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── Fallback download row ── */
+.tc-modal-footer {
+  padding: 14px 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.tc-modal-footer p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+.tc-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tc-download:hover {
+  background: var(--orange);
+}
+
+@media (max-width: 600px) {
+  .tc-modal-header { padding: 16px 18px; }
+  .tc-modal-footer { padding: 12px 18px; }
+}
