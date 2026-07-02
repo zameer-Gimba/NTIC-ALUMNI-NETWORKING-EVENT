@@ -282,6 +282,10 @@ ul { list-style: none; }
   font-style: italic;
 }
 .hero-btn { font-size: 0.92rem; padding: 15px 32px; }
+.hero-terms a {
+  color: #0070f3;         /* Matches your primary brand color link */
+  text-decoration: underline;
+}
 
 /* ======== ABOUT ======== */
 .about { background: var(--white); }
