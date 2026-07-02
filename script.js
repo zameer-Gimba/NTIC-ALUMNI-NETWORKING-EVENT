@@ -338,6 +338,13 @@ if (stickyCta && hero && contact) {
 // ======== BACK TO TOP ========
 document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+const termsLink = document.querySelector('.hero-terms a');
 
+if (termsLink) {
+  termsLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    openTermsModal(); // Your custom modal execution function
+  });
+}
 
 });
