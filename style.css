@@ -1559,3 +1559,21 @@ exhibitors {
   .tc-modal-header { padding: 16px 18px; }
   .tc-modal-footer { padding: 12px 18px; }
 }
+/* ======== HERO T&C LINK ======== */
+.hero-tc-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero-tc-link:hover {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
