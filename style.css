@@ -1579,7 +1579,7 @@ exhibitors {
 }
 /* ======== SPEAKER ALUMNI TAG ======== */
 .s-alumni-tag {
-  display: inline-flex;
+  display: inline-block;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.68rem;
